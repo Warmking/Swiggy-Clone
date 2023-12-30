@@ -1,13 +1,5 @@
-/*
-*
-* <div>
-
-*
-*
-*
-*
-* ReactElemet (object) -- HTML  (browser)
-*/
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
 const header = React.createElement(
     "div",
@@ -17,7 +9,7 @@ const header = React.createElement(
     [React.createElement(
         "h1",
         { id: "heading" }, 
-        "Hello world from React!"
+        "Hello world from React! 🚀"
       ),React.createElement(
         "h2",
         { id: "heading2" }, 
