@@ -1,11 +1,36 @@
 {
   "devDependencies": {
     "parcel": "^2.10.3",
-    "process": "^0.11.10"
+    "parcel-bundler": "^1.12.5",
+    "postcss": "^8.4.33",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.0"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.1"
   },
-    "browserlist" : ["last 3 versions"]
+  "browserlist": [
+    "last 3 versions"
+  ],
+  "name": "namaste-react",
+  "description": "namste react",
+  "version": "1.0.0",
+  "main": "App.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Warmking/namaste-react.git"
+  },
+  "author": "mohanDev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Warmking/namaste-react/issues"
+  },
+  "homepage": "https://github.com/Warmking/namaste-react#readme"
 }
