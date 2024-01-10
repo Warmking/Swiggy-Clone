@@ -26,7 +26,7 @@ export const Header = () => {
         </li>
         <li className=" mx-2">Cart</li>
         <button
-          className="login-btn"
+          className="mx-2"
           onClick={() => {
             buttonText === "Login"
               ? setButtonText("Logout")

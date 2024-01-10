@@ -5,8 +5,8 @@ const RestCard = (props) => {
     // console.log(name,avgRating,cuisines);
     // console.log(resName);
     return (
-      <div className="w-40 m-2 p-1 border-black">
-        <img className="w-48 h-44" src={RES_URL+props.resData.info.cloudinaryImageId}></img>
+      <div className="w-52 m-2 p-1 border bg-slate-100 rounded-lg h-auto shadow-md">
+        <img className="w-48 h-44 rounded-xl m-1" src={RES_URL+props.resData.info.cloudinaryImageId}></img>
         <h3 >{name}</h3>
         <h5 >⭐ : {avgRating}</h5>
         <h5 > Delivary Time : {sla.deliveryTime}</h5>
