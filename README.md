@@ -14,3 +14,9 @@
  *    cusini
  */
 # Tailwind css
+
+  # Redux Toolkit 
+   - Installation @reduxjs/toolkit and react-redux 
+   - create appStore.js and configure the store
+   - create cartSlice.js , configure neccessary reducers and actions
+   

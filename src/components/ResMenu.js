@@ -5,44 +5,36 @@ import useRestaurentMenu from "../utils/useRestaurentMenu";
 import { title } from "process";
 import { useState } from "react";
 import ItemList from "./ItemsList";
+import ResCategory from "./ResCategory";
 
 const ResMenu = () => {
-  const [listViewFlag , setListViewFlag] = useState(false);
   const { resId } = useParams();
-  const resMenuItems = useRestaurentMenu(resId);
-  // console.log(resMenuItems);
-  
-  
-  if (!resMenuItems) {
+  const data = useRestaurentMenu(resId);
+  const [showIndex,setShowIndex] = useState(null)
+  if (!data) {
     return <ShimmerUi></ShimmerUi>;
   }
+  const { name, cuisines, costForTwoMessage } =
+    data?.cards[0]?.card?.card?.info;
+  const categories =
+    data?.cards[2].groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (item) =>
+        item?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
   return (
-    <div>
-      <ul>
-        {resMenuItems?.cards.map((items, i) => {
-          return (
-            <div key={i}>
-              {items?.card?.card?.["@type"] ===
-                "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" && (
-                <div className="flex justify-center">
-                  <div className="w-6/12  m-1 p-2 bg-slate-50">
-                    <div className="flex justify-between hover:cursor-pointer" onClick={()=>{
-                            setListViewFlag(!listViewFlag)
-                    }}>
-                      <span className="font-bold">
-                        {items?.card?.card?.title} (
-                        {items?.card?.card?.itemCards.length})
-                      </span>
-                      <span>🔽</span>
-                    </div>
-                    {listViewFlag && <ItemList listItems={items}/>}
-                  </div>
-                </div>
-              )}
-            </div>
-          );
-        })}
-      </ul>
+    <div className="text-center">
+      <h1 className="font-bold font-sans text-3xl p-2">{name}</h1>
+      <p>{cuisines + " - " + costForTwoMessage}</p>
+      {categories.map((item, index) => (
+        // controlled component
+        <ResCategory
+          key={index}
+          data={item?.card?.card}
+          listView={index === showIndex ? true : false}
+          setShowIndex = {()=>setShowIndex(index)}
+        />
+      ))}
     </div>
   );
 };

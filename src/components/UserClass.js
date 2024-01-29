@@ -19,7 +19,7 @@ class UserClass extends React.Component{
         const name = this.props.name
         let {count} = this.state
         return (
-            <div className="user-card">
+            <div className="m-2 p-2">
             <h2>Name : {name}</h2>
             <h3>Location : kadapa </h3>
             <h3>Age : 24 </h3>
